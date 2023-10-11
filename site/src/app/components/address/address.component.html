@@ -2,14 +2,11 @@
     <div class="container">
       <h1 class="text-center mb-4">Endereço</h1>
       <p>
-        Sed vel libero sed enim interdum ultrices. Praesent blandit accumsan
-        neque a laoreet. Sed efficitur orci sit amet risus ultrices, non
-        volutpat lacus dictum. Aliquam facilisis nulla libero, a varius
-        metus gravida a. Praesent faucibus imperdiet pretium. Nam eget velit
-        in ligula dictum lacinia vel ut odio. Nam at elit purus. Morbi sit
-        amet porta arcu, id gravida orci. Phasellus dapibus, velit vel
-        rutrum ullamcorper, nisi urna imperdiet ex, quis efficitur elit
-        massa sit amet massa. Vestibulum non luctus mauris.
-      </p>
+      {{ address.data?.street }} {{ address.data?.number }} {{address.data?.state}} {{address.data?.city}} {{address.data?.neighborhood}} 
+       <!-- <br>
+       {{address.data?.zipCode}}
+       <br> -->
+       <!-- <span>Interpolação via function: </span>{{ getDataString() }} -->
+      </p> 
     </div>
-  </section>
+  </section> 

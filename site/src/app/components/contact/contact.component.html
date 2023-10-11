@@ -5,8 +5,13 @@
         <label for="exampleFormControlInput1" class="form-label"
           >Email</label
         >
+        <!--  -->
         <input
+          [disabled]="disableEmail"
+          [(ngModel)]="contactInfo.email" 
+          (keyup)="testEvent($event)"
           type="email"
+          name="email"
           class="form-control"
           id="exampleFormControlInput1"
           placeholder="name@example.com"
@@ -17,11 +22,16 @@
           >Mensagem</label
         >
         <textarea
+          [(ngModel)]="contactInfo.message"
           class="form-control"
+          name="message"
           id="exampleFormControlTextarea1"
           rows="3"
         ></textarea>
       </div>
-      <button class="btn btn-primary">Enviar</button>
+      <button (click)="submitForm(contactInfo)" class="btn btn-primary">Enviar</button>
+      <!-- <button [hidden]="disabledButton" [disabled]="disabledButton" class="btn btn-primary">Variável Enviar</button>
+      <button [hidden]="disabledButtonFunction()" [disabled]="disabledButtonFunction()" class="btn btn-primary">Função Enviar</button> -->
+
     </div>
   </section>
