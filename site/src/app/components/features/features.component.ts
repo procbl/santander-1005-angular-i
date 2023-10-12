@@ -8,4 +8,7 @@ import { FeatureData } from 'src/app/models/feature-data.model';
 })
 export class FeaturesComponent {
   @Input() public featuresData!: FeatureData;
+  @Input() public backgroundcolor!: string;
+  constructor(){
+  }
 }

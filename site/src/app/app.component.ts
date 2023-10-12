@@ -56,11 +56,12 @@ export class AppComponent {
       },
     },
   };
-
+  novaCorBackground = 'gray'
   constructor() {}
 
   validarFormulario(formulario: ContactForm) {
-    console.log(
+    this.novaCorBackground = formulario.message
+    /* console.log(
       'Evento Recebido pelo component pai do component filho(contact)',
       formulario
     );
@@ -68,7 +69,7 @@ export class AppComponent {
       console.log('Este aluno estuda na ADA', formulario.email)
     } else {
       console.log('Este aluno NÃO estuda na ADA', formulario.email)
-    }
+    } */
   }
 
   momentoEnvioForm() {
