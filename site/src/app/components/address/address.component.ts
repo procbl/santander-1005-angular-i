@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AddressData } from 'src/app/models/address-data.model';
 
 @Component({
   selector: 'app-address',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./address.component.scss'],
 })
 export class AddressComponent {
-  @Input() address!: any;
+  @Input() address!: AddressData;
 
   constructor() { 
   }
@@ -16,7 +17,7 @@ export class AddressComponent {
     return this.address.street + ' ' + this.address.number;
   } */
 
-  /* getAddressComplet(address: any): void {
+  /* getAddressComplet(address: Address): void {
     console.log(
       address.street +
         ' ' +

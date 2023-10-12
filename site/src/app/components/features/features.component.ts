@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FeatureData } from 'src/app/models/feature-data.model';
 
 @Component({
   selector: 'app-features',
@@ -6,8 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./features.component.scss']
 })
 export class FeaturesComponent {
-  @Input() public featuresData!: any;
-  ngOnInit(){
-    console.log(this.featuresData)
-  }
+  @Input() public featuresData!: FeatureData;
 }

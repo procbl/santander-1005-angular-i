@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AppData } from './models/app-data.model';
+import { ContactForm } from './models/contact-form.model';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'site';
-  public data: any = {
+  public data: AppData = {
     features: {
       sectionTitle: 'Destaques',
       features: [
@@ -54,8 +56,22 @@ export class AppComponent {
       },
     },
   };
-  
-  constructor() {
-     
+
+  constructor() {}
+
+  validarFormulario(formulario: ContactForm) {
+    console.log(
+      'Evento Recebido pelo component pai do component filho(contact)',
+      formulario
+    );
+    if(formulario.email.endsWith('@ada.com')) {
+      console.log('Este aluno estuda na ADA', formulario.email)
+    } else {
+      console.log('Este aluno NÃO estuda na ADA', formulario.email)
+    }
+  }
+
+  momentoEnvioForm() {
+    console.log('o formulário foi enviado às:', new Date())
   }
 }

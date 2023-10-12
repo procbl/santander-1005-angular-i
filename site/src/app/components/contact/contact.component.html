@@ -1,37 +1,60 @@
 <section id="contact" class="my-5">
-    <div class="container">
-      <h1 class="text-center mb-4">Contato</h1>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label"
-          >Email</label
-        >
-        <!--  -->
-        <input
-          [disabled]="disableEmail"
-          [(ngModel)]="contactInfo.email" 
-          (keyup)="testEvent($event)"
-          type="email"
-          name="email"
-          class="form-control"
-          id="exampleFormControlInput1"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label"
-          >Mensagem</label
-        >
-        <textarea
-          [(ngModel)]="contactInfo.message"
-          class="form-control"
-          name="message"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
-      </div>
-      <button (click)="submitForm(contactInfo)" class="btn btn-primary">Enviar</button>
-      <!-- <button [hidden]="disabledButton" [disabled]="disabledButton" class="btn btn-primary">Variável Enviar</button>
-      <button [hidden]="disabledButtonFunction()" [disabled]="disabledButtonFunction()" class="btn btn-primary">Função Enviar</button> -->
-
+  <div class="container">
+    <h1 class="text-center mb-4">Contato</h1>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email</label>
+      <!--  -->
+      <!-- { 'background-color': userIsAuthenticated ? 'red' : 'black' } -->
+      <!-- border: 5px solid purple; -->
+      <input
+        [ngStyle]="{
+          border: contactInfo.email.length > 0 ? '5px solid purple' : ''
+        }"
+        [disabled]="disableEmail"
+        [(ngModel)]="contactInfo.email"
+        (keyup)="testEvent($event)"
+        type="email"
+        name="email"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="name@example.com"
+      />
+      <!-- <select [(ngModel)]="teste" (change)="test($event)" class="form-select" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select> -->
     </div>
-  </section>
+    <div class="mb-3">
+      <label
+        [ngStyle]="{
+          'margin-top': contactInfo.email.length > 10 ? '50px' : '0px'
+        }"
+        for="exampleFormControlTextarea1"
+        class="form-label"
+        >Mensagem</label
+      >
+      <textarea
+        [(ngModel)]="contactInfo.message"
+        class="form-control"
+        name="message"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <button
+    class="btn"
+      (click)="submitForm()"
+      [ngClass]="{
+        'class-10': contactInfo.email.length > 10,
+        'class-5': contactInfo.email.length > 5,
+        'btn-secondary': contactInfo.email.length === 0
+      }"
+    >
+      Enviar
+    </button>
+    <!-- <button [hidden]="disabledButton" [disabled]="disabledButton" class="btn btn-primary">Variável Enviar</button>
+      <button [hidden]="disabledButtonFunction()" [disabled]="disabledButtonFunction()" class="btn btn-primary">Função Enviar</button> -->
+  </div>
+</section>
