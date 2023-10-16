@@ -16,16 +16,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li *ngIf="menu.includes('home')" class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="menu.includes('about')" class="nav-item">
             <a class="nav-link" href="#about">Sobre nós</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="menu.includes('address')" class="nav-item">
             <a class="nav-link" href="#address">Endereço</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="menu.includes('contact')" class="nav-item">
             <a class="nav-link" href="#contact">Contato</a>
           </li>
         </ul>
@@ -36,7 +36,7 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <a class="btn btn-outline-light" href="#">Search</a>
+          <a (click)='verificaPermissaoUsuario()' class="btn btn-outline-light" href="#">Search</a>
         </form>
       </div>
     </div>

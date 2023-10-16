@@ -56,11 +56,17 @@ export class AppComponent {
       },
     },
   };
-  novaCorBackground = 'gray'
+  novaCorBackground = 'gray';
+  tipoUsuario = 'VISITANTE';
   constructor() {}
 
   validarFormulario(formulario: ContactForm) {
-    this.novaCorBackground = formulario.message
+    this.novaCorBackground = formulario.message;
+    if(formulario.email === 'cleber@ada.com'){
+      this.tipoUsuario = 'ADMIN';
+    } else {
+      this.tipoUsuario = 'VISITANTE';
+    }
     /* console.log(
       'Evento Recebido pelo component pai do component filho(contact)',
       formulario

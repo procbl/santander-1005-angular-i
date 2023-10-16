@@ -3,6 +3,7 @@
     <h1 class="text-center mb-4">Destaques</h1>
     <div class="row">
       <div
+        *ngIf="backgroundcolor === 'red'; else elseBlock"
         [ngStyle]="{
           backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
         }"
@@ -16,6 +17,23 @@
           </p>
         </div>
       </div>
+      <!-- <div *ngIf="backgroundcolor !== 'red'" -->
+      <ng-template #elseBlock>
+        <div
+          [ngStyle]="{
+            backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
+          }"
+          class="col features text-center"
+        >
+          <img src="" alt="" />
+          <div class="text-center">
+            <h4>{{ featuresData.features[0].title }}</h4>
+            <p>
+              {{ featuresData.features[0].text }}
+            </p>
+          </div>
+        </div>
+      </ng-template>
       <div
         [ngStyle]="{
           backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
