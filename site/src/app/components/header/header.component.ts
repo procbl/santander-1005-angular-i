@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,16 +6,23 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input() tipoUsuario!: string;
+  @Input() tipoUsuario!: any;
+  @Output() public logoutUsuario = new EventEmitter<any>();;
   
   menu = ['home'];
   //mostrar um exemplo após ensinar sobre ciclo de vida
   verificaPermissaoUsuario() {
-    if(this.tipoUsuario === 'ADMIN') {
+    if(this.tipoUsuario.permissao === 'ADMIN') {
       this.menu = ['home','about','address','contact'];
     } else {
       this.menu = ['home'];
     }
      console.log('tipo do usuário', this.tipoUsuario)
   }
+
+  logout() {
+    this.tipoUsuario.permissao = 'VISITANTE';
+    this.verificaPermissaoUsuario() 
+  }
+   
 }

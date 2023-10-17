@@ -57,15 +57,26 @@ export class AppComponent {
     },
   };
   novaCorBackground = 'gray';
-  tipoUsuario = 'VISITANTE';
+  tipoUsuario: any = {
+    permissao: '',
+  };
+
+  frutas = [
+    { nome: 'Maçã', cor: 'vermelho' },
+    { nome: 'Banana', cor: 'amarelo' },
+    { nome: 'Laranja', cor: 'Laranja' },
+  ];
   constructor() {}
 
   validarFormulario(formulario: ContactForm) {
     this.novaCorBackground = formulario.message;
-    if(formulario.email === 'cleber@ada.com'){
-      this.tipoUsuario = 'ADMIN';
+    if (formulario.email === 'cleber@ada.com') {
+      this.tipoUsuario.permissao = 'ADMIN';
+    } else
+    if (formulario.email === 'aluno@ada.com') {
+      this.tipoUsuario.permissao = 'ALUNO';
     } else {
-      this.tipoUsuario = 'VISITANTE';
+      this.tipoUsuario.permissao = 'VISITANTE';
     }
     /* console.log(
       'Evento Recebido pelo component pai do component filho(contact)',
@@ -78,7 +89,11 @@ export class AppComponent {
     } */
   }
 
+  resetTipoUsuario() {
+    this.tipoUsuario.permissao = 'VISITANTE';
+  }
+
   momentoEnvioForm() {
-    console.log('o formulário foi enviado às:', new Date())
+    console.log('o formulário foi enviado às:', new Date());
   }
 }

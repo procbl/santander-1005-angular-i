@@ -37,7 +37,17 @@
             aria-label="Search"
           />
           <a (click)='verificaPermissaoUsuario()' class="btn btn-outline-light" href="#">Search</a>
+          <a *ngIf="tipoUsuario.permissao === 'ADMIN'" (click)='logout()' class="btn btn-outline-light" href="#">Logout</a>
         </form>
+        <div>
+          <p [ngSwitch]="tipoUsuario.permissao">
+            <span *ngSwitchCase="'ADMIN'" class="permissao"> (ADMIN)</span>
+            <span *ngSwitchCase="'ALUNO'" class="permissao"> (ALUNO)</span>
+            <span *ngSwitchCase="'VISITANTE'" class="permissao"> (VISITANTE)</span>
+            <span *ngSwitchDefault class="permissao"> (NÃO IDENTIFICADO)</span>
+          </p>
+        </div>
       </div>
     </div>
   </nav>
+ 

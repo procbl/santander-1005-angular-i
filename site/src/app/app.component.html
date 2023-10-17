@@ -8,8 +8,19 @@
      
   </head>
   <body>
+  <!--   <ul>
+      <li *ngFor="let fruta of frutas; index as indice">{{ indice }} Nome: {{ fruta.nome }} e Cor: {{ fruta.cor}}</li>
+    </ul>
+
+    <ul>
+      <li>{{ frutas[0].nome }}</li>
+      <li>{{ frutas[1].nome }}</li>
+      <li>{{ frutas[2].nome }}</li> 
+    </ul> -->
+    <!-- <pre> pai {{tipoUsuario }}</pre> -->
+
     <!-- Navbar -->
-    <app-header [tipoUsuario]="tipoUsuario"></app-header>
+    <app-header (logoutUsuario)="resetTipoUsuario()" [tipoUsuario]="tipoUsuario"></app-header>
     <!-- End Navbar -->
 
     <!-- Main -->

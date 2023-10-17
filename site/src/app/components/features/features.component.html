@@ -2,22 +2,21 @@
   <div class="container">
     <h1 class="text-center mb-4">Destaques</h1>
     <div class="row">
-      <div
+      <!-- <div
         *ngIf="backgroundcolor === 'red'; else elseBlock"
         [ngStyle]="{
           backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
         }"
         class="col features text-center"
       >
-        <img src="./../assets/images/feature1.png" alt="" />
+        <img src="./assets/images/feature1.png" alt="" />
         <div class="text-center">
           <h4>{{ featuresData.features[0].title }}</h4>
           <p>
             {{ featuresData.features[0].text }}
           </p>
         </div>
-      </div>
-      <!-- <div *ngIf="backgroundcolor !== 'red'" -->
+      </div> 
       <ng-template #elseBlock>
         <div
           [ngStyle]="{
@@ -33,46 +32,19 @@
             </p>
           </div>
         </div>
-      </ng-template>
+      </ng-template> -->
       <div
         [ngStyle]="{
           backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
         }"
+        *ngFor="let feature of featuresData.features"
         class="col features text-center"
       >
-        <img src="./../assets/images/feature2.png" alt="" />
+        <img src="{{feature.image}}" alt="" />
         <div class="text-center">
-          <h4>{{ featuresData.features[1].title }}</h4>
+          <h4>{{ feature.title }}</h4>
           <p>
-            {{ featuresData.features[1].text }}
-          </p>
-        </div>
-      </div>
-      <div
-        [ngStyle]="{
-          backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
-        }"
-        class="col features text-center"
-      >
-        <img src="./../assets/images/feature3.png" alt="" />
-        <div class="text-center">
-          <h4>{{ featuresData.features[2].title }}</h4>
-          <p>
-            {{ featuresData.features[2].text }}
-          </p>
-        </div>
-      </div>
-      <div
-        [ngStyle]="{
-          backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
-        }"
-        class="col features text-center"
-      >
-        <img src="./../assets/images/feature4.png" alt="" />
-        <div class="text-center">
-          <h4>{{ featuresData.features[3].title }}</h4>
-          <p>
-            {{ featuresData.features[3].text }}
+            {{ feature.text }}
           </p>
         </div>
       </div>

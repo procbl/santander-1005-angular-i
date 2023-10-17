@@ -16,6 +16,7 @@ export class ContactComponent {
     email: '',
     message: '',
   };
+  tipoUsuario:any = 'VISITANTE'
 
   disableEmail = false;
 
@@ -25,9 +26,13 @@ export class ContactComponent {
     }, 5000);
   }
 
+  resetTipoUsuario(){
+    console.log(this.tipoUsuario)
+  }
+
   test(event:any) {
-    console.log('change event.key:', event.key)
-    console.log(event)
+    //console.log('change event.key:', event.key)
+   // console.log(event)
   }
 
   disabledButtonFunction() {
@@ -35,11 +40,11 @@ export class ContactComponent {
   }
 
   testEvent(event:any): void {
-    console.log('tecla apertada foi:', event.key)
-    console.log(event);
+    //console.log('tecla apertada foi:', event.key)
+    //console.log(event);
     if (this.contactInfo.email.endsWith('@gmail.com')) {
-      console.log('EMAIL COMPLETO');
-      console.log(event);
+      //console.log('EMAIL COMPLETO');
+      //console.log(event);
       this.disableEmail = true;
     } else {
       this.disableEmail = false;
@@ -49,7 +54,11 @@ export class ContactComponent {
   }
 
   submitForm(): void {
-
+    if(this.contactInfo.email === 'cleber@ada.com'){
+      this.tipoUsuario = {permissao: 'ADMIN'};
+    } else {
+      this.tipoUsuario = {permissao: 'VISITANTE'};
+    }
     console.log(
       'Evento Emitido pelo component filho(contact) para o component pai(app.component)  ',
       this.contactInfo
