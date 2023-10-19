@@ -36,7 +36,7 @@
             placeholder="Search"
             aria-label="Search"
           />
-          <a (click)='verificaPermissaoUsuario()' class="btn btn-outline-light" href="#">Search</a>
+          <a class="btn btn-outline-light" href="#">Search</a>
           <a *ngIf="tipoUsuario.permissao === 'ADMIN'" (click)='logout()' class="btn btn-outline-light" href="#">Logout</a>
         </form>
         <div>
