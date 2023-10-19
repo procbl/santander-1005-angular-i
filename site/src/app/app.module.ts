@@ -10,6 +10,8 @@ import { AddressComponent } from './components/address/address.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { HighlightDirective } from './directives/highlight/highlight.directive';
+import { UnderlineDirective } from './directives/underline/underline.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     AddressComponent,
     ContactComponent,
     FooterComponent,
+    HighlightDirective,
+    UnderlineDirective
   ],
   imports: [
     BrowserModule,

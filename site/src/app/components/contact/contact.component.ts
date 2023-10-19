@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { ContactForm } from 'src/app/models/contact-form.model';
 
 @Component({
@@ -25,6 +25,7 @@ export class ContactComponent {
       this.disabledButton = false;
     }, 5000);
   }
+  
 
   resetTipoUsuario(){
     console.log(this.tipoUsuario)

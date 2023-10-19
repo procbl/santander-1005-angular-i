@@ -8,19 +8,9 @@
      
   </head>
   <body>
-  <!--   <ul>
-      <li *ngFor="let fruta of frutas; index as indice">{{ indice }} Nome: {{ fruta.nome }} e Cor: {{ fruta.cor}}</li>
-    </ul>
-
-    <ul>
-      <li>{{ frutas[0].nome }}</li>
-      <li>{{ frutas[1].nome }}</li>
-      <li>{{ frutas[2].nome }}</li> 
-    </ul> -->
-    <!-- <pre> pai {{tipoUsuario }}</pre> -->
-
+   
     <!-- Navbar -->
-    <app-header (logoutUsuario)="resetTipoUsuario()" [tipoUsuario]="tipoUsuario"></app-header>
+    <app-header  (logoutUsuario)="resetTipoUsuario()" [tipoUsuario]="tipoUsuario"></app-header>
     <!-- End Navbar -->
 
     <!-- Main -->
@@ -30,19 +20,19 @@
       <!-- End Carousel -->
 
       <!-- Features -->
-      <app-features [backgroundcolor]="novaCorBackground" [featuresData]="data.features"></app-features>
+      <app-features  [backgroundcolor]="novaCorBackground" [featuresData]="data.features"></app-features>
       <!-- End Features -->
 
       <!-- About -->
-      <app-about [aboutData]="data.about"></app-about>
+      <app-about [hidden]='mostraEndereco' [aboutData]="data.about"></app-about>
       <!-- End About -->
 
       <!-- Address -->
-      <app-address [address]="data.address"></app-address>
+      <app-address *ngIf="mostraEndereco" [address]="data.address"></app-address>
       <!-- End Address -->
 
       <!-- Contact -->
-      <app-contact (momentoEnvioForm)="momentoEnvioForm()" (sendFormData)="validarFormulario($event)"></app-contact>
+      <app-contact  (momentoEnvioForm)="momentoEnvioForm()" (sendFormData)="validarFormulario($event)"></app-contact>
       <!-- End Contact -->
 
       <div class="btn-top">

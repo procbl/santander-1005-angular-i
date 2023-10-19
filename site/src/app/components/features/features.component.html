@@ -33,16 +33,16 @@
           </div>
         </div>
       </ng-template> -->
+      <!--  [ngStyle]="{
+         backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
+       }" -->
       <div
-        [ngStyle]="{
-          backgroundColor: backgroundcolor.length > 0 ? backgroundcolor : ''
-        }"
-        *ngFor="let feature of featuresData.features"
+        *ngFor="let feature of featuresData.features; index as i"
         class="col features text-center"
       >
         <img src="{{feature.image}}" alt="" />
         <div class="text-center">
-          <h4>{{ feature.title }}</h4>
+          <h4>{{ feature.title }} - {{i}}</h4>
           <p>
             {{ feature.text }}
           </p>

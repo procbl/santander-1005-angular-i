@@ -8,6 +8,7 @@ import { ContactForm } from './models/contact-form.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  mostraEndereco = false;
   title = 'site';
   public data: AppData = {
     features: {
@@ -61,22 +62,28 @@ export class AppComponent {
     permissao: '',
   };
 
+
   frutas = [
     { nome: 'Maçã', cor: 'vermelho' },
     { nome: 'Banana', cor: 'amarelo' },
     { nome: 'Laranja', cor: 'Laranja' },
   ];
+
+  hero!: any;
+  power = '';
   constructor() {}
 
   validarFormulario(formulario: ContactForm) {
     this.novaCorBackground = formulario.message;
     if (formulario.email === 'cleber@ada.com') {
-      this.tipoUsuario.permissao = 'ADMIN';
+      /* this.tipoUsuario.permissao = 'ADMIN'; */
+      this.tipoUsuario = {permissao: 'ADMIN'};
     } else
     if (formulario.email === 'aluno@ada.com') {
-      this.tipoUsuario.permissao = 'ALUNO';
-    } else {
-      this.tipoUsuario.permissao = 'VISITANTE';
+      this.mostraEndereco = false 
+      this.tipoUsuario = {permissao: 'ALUNO'};
+    } else { 
+      this.tipoUsuario = {permissao: 'VISITANTE'};
     }
     /* console.log(
       'Evento Recebido pelo component pai do component filho(contact)',
@@ -90,7 +97,7 @@ export class AppComponent {
   }
 
   resetTipoUsuario() {
-    this.tipoUsuario.permissao = 'VISITANTE';
+    this.tipoUsuario = {permissao: 'VISITANTE'};
   }
 
   momentoEnvioForm() {
