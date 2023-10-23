@@ -4,17 +4,23 @@
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
+        <h1>NOVO B</h1>
+        
+      <form [formGroup]="formB">
         <mat-form-field appearance="outline">
           <mat-label>E-mail</mat-label>
-          <input matInput [(ngModel)]="email" name="email" />
+          <input matInput formControlName="email" name="email" />
+          <mat-error> {{formB.controls['email'].errors?.['required'] ? 'Campo Obrigatório' : 'O seu email deve possuir mais de 2 caracteres'}} </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Senha</mat-label>
-          <input matInput [(ngModel)]="password" name="password" />
+          <input matInput formControlName="password" name="password" />
         </mat-form-field>
-        <button (click)="login()" mat-flat-button color="primary" [disabled]="!email || !password" class="w-100 custom-button">
+        <button (click)="login()" mat-flat-button color="primary" [disabled]="formB.invalid" class="w-100 custom-button">
           Entrar
+        </button>
+        <button (click)="verForm()" mat-flat-button color="primary"  class="w-100 custom-button">
+          ver form
         </button>
       </form>
     </mat-card-content>

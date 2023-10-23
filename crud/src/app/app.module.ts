@@ -18,6 +18,7 @@ import { UsersComponent } from './components/users/users.component';
 import { registerLocaleData } from '@angular/common';
 import { NgxMaskModule } from 'ngx-mask';
 import { cepMaskPipe } from './components/pipes/cep-mask.pipe';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 registerLocaleData(ptBr)
 
@@ -27,7 +28,8 @@ registerLocaleData(ptBr)
     LoginComponent,
     HeaderComponent,
     UsersComponent,
-    cepMaskPipe
+    cepMaskPipe,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
