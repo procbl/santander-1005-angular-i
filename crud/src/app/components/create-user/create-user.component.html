@@ -1,7 +1,110 @@
-<h1>MODAL ABERTA</h1>
-<div>
-    <span>{{data.nome}} {{data.telefone}} {{data.salario}}</span>
+<h1 mat-dialog-title>Novo usuário</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <fieldset>
+      <legend>Dados pessoais</legend>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" />
+            <mat-error>O campo nome é obrigatório.</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Profissão</mat-label>
+            <input matInput formControlName="profissao" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Data de nascimento</mat-label>
+            <input matInput formControlName="dataNascimento" mask="00/00/0000" [dropSpecialCharacters]="false"/>
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" /> 
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput formControlName="password" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Telefone</mat-label>
+            <input
+              matInput
+              formControlName="telefone"
+              prefix="+55 "
+              [mask]="'(00) 0 0000-0000'"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset formGroupName="endereco">
+      <legend>Endereço</legend>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>CEP</mat-label>
+            <input matInput formControlName="cep" mask="00000-000" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Rua</mat-label>
+            <input matInput formControlName="rua" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Número</mat-label>
+            <input matInput formControlName="numero" />
+          </mat-form-field>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Bairro</mat-label>
+            <input matInput formControlName="bairro" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Cidade</mat-label>
+            <input matInput formControlName="cidade" />
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <input matInput formControlName="estado" />
+          </mat-form-field>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 </div>
-<button mat-flat-button color="secundary" [mat-dialog-close]>Cancelar Form</button>
-<button mat-flat-button color="primary" (click)="devolveValor()">Enviar Form</button>
- 
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="onCancel()">Cancelar</button>
+  <button
+    mat-flat-button
+    (click)="onSubmit()"
+    [disabled]="userForm.invalid"
+    color="primary" 
+  >
+    Salvar
+  </button>
+</div>

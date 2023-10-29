@@ -50,6 +50,7 @@ export class LoginComponent {
   }
 
   verForm(): void { 
+    console.log(this.formB.controls['email'].errors)
     console.log('formB', this.formB)
     console.log('formB', this.formB.value)
   }
